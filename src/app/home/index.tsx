@@ -4,19 +4,26 @@ import { Categories, Link, Option } from "@components"
 import { MaterialIcons } from "@expo/vector-icons"
 import { colors } from "@colors"
 import { styles } from "./styles"
+import { router } from "expo-router"
 import logoSrc from "@assets/logo.png"
+import { useState } from "react"
+import { categories } from "@utils/categories"
 
 const Home = () => {
+    const [category, setCategory] = useState(categories[0].name)
 
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.header}>
                 <Image source={logoSrc} style={styles.logo} />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.navigate("/add")}>
                     <MaterialIcons name="add" size={32} color={colors.green[300]} />
                 </TouchableOpacity>
             </View>
-            <Categories />
+            <Categories
+                selectedCategory={category}
+                onChangeCategory={setCategory}
+            />
 
             <FlatList
                 data={["1", "2"]}
@@ -33,7 +40,7 @@ const Home = () => {
                 )}
             />
 
-            <Modal transparent={true} visible={true}>
+            <Modal transparent={true} visible={false}>
                 <View style={styles.modalView}>
                     <View style={styles.modalContent}>
                         <View style={styles.modalHeader}>

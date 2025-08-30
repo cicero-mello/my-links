@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity } from "react-native"
-import { style } from "./styles"
+import { styles } from "./styles"
 import { colors } from "@colors"
-import { OptionProps } from "./types"
+import type { OptionProps } from "./types"
 import { MaterialIcons } from "@expo/vector-icons"
 
 export const Option = ({
@@ -10,13 +10,13 @@ export const Option = ({
 }: OptionProps) => {
 
     return (
-        <TouchableOpacity style={style.wrapper} {...rest}>
+        <TouchableOpacity style={styles.wrapper} {...rest}>
             <MaterialIcons
                 name={icon}
                 size={20}
                 color={variant === "primary" ? colors.green[300] : colors.gray[400]}
             />
-            <Text style={variant === "primary" ? style.primaryTitle : style.secondaryTitle}>
+            <Text style={variant === "primary" ? styles.primaryTitle : styles.secondaryTitle}>
                 {name}
             </Text>
         </TouchableOpacity>

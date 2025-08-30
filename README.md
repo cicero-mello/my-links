@@ -5,7 +5,7 @@ O My Links é um gerenciador de links desenvolvido no curso de [React Native com
 ![App Screenshot](./.github/screenshot.webp)
 
 Dentre as tecnologias, temos:
-- **React**
+- **React Native**
 - **Typescript**
 - **Expo**
 - **Material Icons (expo/vector-icons)**

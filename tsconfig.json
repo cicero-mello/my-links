@@ -15,6 +15,9 @@
             "@utils/*": [
                 "./src/utils/*"
             ],
+            "@storage": [
+                "./src/storage/index.ts"
+            ]
         }
     },
     "include": [

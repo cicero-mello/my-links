@@ -2,6 +2,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { MaterialIcons } from "@expo/vector-icons"
 import { Alert, Text, TouchableOpacity, View } from "react-native"
 import { Button, Categories, Input } from "@components"
+import { linkStorage } from "@storage"
 import { router } from "expo-router"
 import { styles } from "./styles"
 import { colors } from "@colors"
@@ -28,8 +29,22 @@ const Add = () => {
         return false
     }
 
-    const handleAdd = () => {
+    const handleAddLink = async () => {
         if (isSomeInputInvalid()) return
+
+        try {
+            await linkStorage.save({
+                category, name, url,
+                id: +(new Date()) + ""
+            })
+
+            Alert.alert("Success", "New link was added", [{
+                text: "Ok", onPress: () => router.back()
+            }])
+        } catch (error) {
+            Alert.alert("Error", "Unable to save the link")
+            console.error(error)
+        }
     }
 
     return (
@@ -51,7 +66,7 @@ const Add = () => {
             <View style={styles.form}>
                 <Input placeholder="Name" onChangeText={setName} />
                 <Input placeholder="URL" onChangeText={setUrl} />
-                <Button title="Add" onPress={handleAdd} />
+                <Button title="Add" onPress={handleAddLink} />
             </View>
         </SafeAreaView>
     )

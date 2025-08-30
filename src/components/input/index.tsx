@@ -9,6 +9,7 @@ export const Input = (props: TextInputProps) => {
             style={styles.input}
             placeholderTextColor={colors.gray[400]}
             autoCorrect={false}
+            autoCapitalize="none"
             {...props}
         />
     )

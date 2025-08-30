@@ -7,7 +7,7 @@ import { MaterialIcons } from "@expo/vector-icons"
 import { categories } from "@utils/categories"
 import { useCallback, useState } from "react"
 import { colors } from "@colors"
-import { styles } from "./styles"
+import { styles } from "@page-styles/home"
 import logoSrc from "@assets/logo.png"
 
 const Home = () => {

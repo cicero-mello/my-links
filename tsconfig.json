@@ -17,6 +17,9 @@
             ],
             "@storage": [
                 "./src/storage/index.ts"
+            ],
+            "@page-styles/*": [
+                "./src/styles/pages/*"
             ]
         }
     },

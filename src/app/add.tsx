@@ -4,7 +4,7 @@ import { Alert, Text, TouchableOpacity, View } from "react-native"
 import { Button, Categories, Input } from "@components"
 import { linkStorage } from "@storage"
 import { router } from "expo-router"
-import { styles } from "./styles"
+import { styles } from "@page-styles/add"
 import { colors } from "@colors"
 import { useState } from "react"
 
